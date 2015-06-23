@@ -255,6 +255,22 @@
             </includes>
         </fileSet>
 
+        <!--copy web app for devices-->
+        <fileSet>
+            <directory>
+                ../p2-profile-gen/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps
+            </directory>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/deployment/server/webapps</outputDirectory>
+            <includes>
+                <include>devicecloud.war</include>
+                <include>firealarm.war</include>
+                <include>arduino.war</include>
+                <include>sensebot.war</include>
+                <include>raspberrypi.war</include>
+                <include>digitaldisplay.war</include>
+            </includes>
+        </fileSet>
+
         <!-- Copying MDM Jaggery app -->
         <fileSet>
             <directory>src/repository/jaggeryapps/</directory>
@@ -501,7 +517,22 @@
             <filtered>true</filtered>
             <fileMode>644</fileMode>
         </file>
-
+        <file>
+            <source>
+                ../p2-profile-gen/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/iot-config.xml
+            </source>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/iot</outputDirectory>
+            <filtered>true</filtered>
+            <fileMode>644</fileMode>
+        </file>
+        <file>
+            <source>
+                ../p2-profile-gen/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/devicecloud-config.xml
+            </source>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/iot</outputDirectory>
+            <filtered>true</filtered>
+            <fileMode>644</fileMode>
+        </file>
         <!--cdm config file-->
         <file>
             <source>

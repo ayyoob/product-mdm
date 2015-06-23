@@ -313,6 +313,10 @@
                                     org.apache.axis2.transport:org.apache.axis2.transport.mail.feature:${axis2-transports.wso2.version}
                                 </featureArtifactDef>
 
+                                <!--Device Cloud Features -->
+                                <featureArtifactDef>
+                                    org.wso2.carbon.device.mgt.iot:org.wso2.carbon.device.mgt.iot.feature:1.0.0-SNAPSHOT
+                                </featureArtifactDef>
 
                             </featureArtifacts>
                         </configuration>
@@ -595,6 +599,10 @@
                                 <feature>
                                     <id>org.apache.axis2.transport.mail.feature.group</id>
                                     <version>${axis2-transports.wso2.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.device.mgt.iot.feature.group</id>
+                                    <version>1.0.0-SNAPSHOT</version>
                                 </feature>
                             </features>
                         </configuration>

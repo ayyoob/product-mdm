@@ -363,6 +363,38 @@
                 <version>${carbon.mobile.device.mgt.version}</version>
             </dependency>
 
+            <!--IOT dependencies-->
+            <dependency>
+                <groupId>org.wso2.carbon.iot</groupId>
+                <artifactId>org.wso2.carbon.device.mgt.iot.common</artifactId>
+                <version>${carbon.iot.device.mgt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.iot</groupId>
+                <artifactId>org.wso2.carbon.device.mgt.iot.firealarm.impl</artifactId>
+                <version>${carbon.iot.device.mgt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.iot</groupId>
+                <artifactId>org.wso2.carbon.device.mgt.iot.arduino.impl</artifactId>
+                <version>${carbon.iot.device.mgt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.iot</groupId>
+                <artifactId>org.wso2.carbon.device.mgt.iot.digitaldisplay.impl</artifactId>
+                <version>${carbon.iot.device.mgt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.iot</groupId>
+                <artifactId>org.wso2.carbon.device.mgt.iot.sensebot.impl</artifactId>
+                <version>${carbon.iot.device.mgt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.iot</groupId>
+                <artifactId>org.wso2.carbon.device.mgt.iot.raspberrypi.impl</artifactId>
+                <version>${carbon.iot.device.mgt.version}</version>
+            </dependency>
+
             <!--Osgi dependencies-->
             <dependency>
                 <groupId>org.eclipse.osgi</groupId>
@@ -791,6 +823,10 @@
         <!-- Carbon Device Management -->
         <carbon.device.mgt.version>0.9.2-SNAPSHOT</carbon.device.mgt.version>
         <carbon.device.mgt.version.range>[0.8.0, 2.0.0)</carbon.device.mgt.version.range>
+
+        <!-- IOT Device Management -->
+        <carbon.iot.device.mgt.version>1.0.0-SNAPSHOT</carbon.iot.device.mgt.version>
+        <mdm.version>1.0.0-SNAPSHOT</mdm.version>
 
         <!-- Carbon Mobile Device Management -->
         <carbon.mobile.device.mgt.version>1.9.2-SNAPSHOT</carbon.mobile.device.mgt.version>
