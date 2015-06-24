@@ -13,4 +13,6 @@ $(document).ready(function(){
     updateStats("/mdm-admin/devices/count", "#device-count");
     updateStats("/mdm-admin/policies/count", "#policy-count");
     updateStats("/mdm-admin/users/count/" + "carbon.super", "#user-count");
+    //TODO: get this value from devicecloud webservice
+    $("#device-type-count").html("8");
 });

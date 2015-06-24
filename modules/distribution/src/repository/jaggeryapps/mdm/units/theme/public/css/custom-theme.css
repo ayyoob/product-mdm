@@ -528,3 +528,59 @@ select.select2 {
 .select2-dropdown {
     z-index: 10000;
 }
+
+
+/*  _____________________________________________________________________________
+
+	 IoT Devices
+    _____________________________________________________________________________  */
+.product-wrapper{ float: left; width:100%; margin-top: -2px;   min-height: 310px; background-color: #EAEAEA;}
+.icon-wrapper{min-height: 110px; padding-top: 12px; text-align: center; }
+.text-wrapper{margin:15px; font-size:14px; border-top: 1px solid #404040; padding-top: 20px; color:#404040; line-height: 18px; text-align: center }
+.center{text-align:center;}
+.right{text-align:right;}
+.left{text-align:left;}
+.justify{text-align:justify;}
+
+.padding-left {padding-left:10px;}
+.padding-right  {padding-right:10px;}
+.padding-top  {padding-top:10px;}
+.padding-bottom  {padding-bottom:10px;}
+.padding{padding:10px;}
+.padding-none{ padding:0px;}
+.padding-left-none{ padding-left:0px;}
+
+
+.padding-left-double {padding-left:20px;}
+.padding-right-double  {padding-right:20px;}
+.padding-top-double  {padding-top:20px;}
+.padding-bottom-double  {padding-bottom:20px;}
+.padding-double{padding:20px;}
+.padding-top-large{padding-top:60px;}
+.padding-bottom-large{padding-bottom:60px;}
+
+.margin-left {margin-left:10px;}
+.margin-right  {margin-right:10px;}
+.margin-top  {margin-top:10px;}
+.margin-bottom  {margin-bottom:10px;}
+.margin{margin:10px;}
+.margin-top-minus{margin-top:-123px;}
+
+.margin-left-double {margin-left:20px;}
+.margin-right-double  {margin-right:20px;}
+.margin-top-double  {margin-top:20px;}
+.margin-bottom-double  {margin-bottom:20px;}
+.margin-double{margin:20px;}
+.margin-left-none{margin-left: 0px;}
+.margin-right-none{margin-right: 0px;}
+
+.float-left{float:left;}
+.float-right{float:right;}
+.clear{ clear:both;}
+
+.inline-block{display: inline-block;}
+.relative{ position:relative;}
+.border{border: 2px solid #dddddd;}
+.border-bottom{border-bottom: 1px solid #efefef;}
+.border-radius{border-radius: 5px;}
+.border-top{border-top: 1px solid #ddd;}

@@ -1,0 +1,96 @@
+{{#zone "topCss"}}
+    <!--<link href="{{self.publicURL}}/css/nv.d3.css" rel="stylesheet"/>-->
+    <link href="{{self.publicURL}}/css/daterangepicker.css" rel="stylesheet"/>
+{{/zone}}
+{{#zone "topJs"}}
+    <!-- -->
+    <!--<script src="{{self.publicURL}}/js/d3.min.js"></script>-->
+    <!--<script src="{{self.publicURL}}/js/nv.d3.js"></script>-->
+    <script src="{{self.publicURL}}/js/Chart.min.js"></script>
+    <script src="{{self.publicURL}}/js/stream_layers.js"></script>
+    <script src="{{self.publicURL}}/js/moment.min.js"></script>
+    <script src="{{self.publicURL}}/js/jquery.daterangepicker.js"></script>
+{{/zone}}
+{{#zone "main"}}
+    <div class="container container-bg  white-bg">
+        <div class=" margin-top-double">
+            <div class="row row padding-top-double padding-bottom-double margin-bottom-double  ">
+                <div class="col-lg-12  margin-top-double">
+                    <h1 class="grey ">Device statistics</h1>
+                    <hr>
+                </div>
+            </div>
+            <div class="row float-right margin-top">
+                <div class="right margin-right">
+                    <p style="color:#000;float:left;margin-top:25px">Date Range:</p>
+					<input class="right margin-right" id="date-range1" size="40" value="" style="margin-top: 20px">
+                    <button type="button" id="btn-draw-graphs" class="btn btn-primary">
+                        Draw Graphs
+                    </button>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div class="row margin-double">
+                <div>
+                    <h2 class="grey ">Temperature</h2>
+                    <hr>
+                    <div id="canvas-wrapper1">No data available...</div>
+                </div>
+                <hr>
+            </div>
+            <div class="row margin-double">
+                <div>
+                    <h2 class="grey ">Light</h2>
+                    <hr>
+                    <div id="canvas-wrapper2">No data available...</div>
+                </div>
+                <hr>
+            </div>
+            <div class="row margin-double">
+                <div>
+                    <h2 class="grey ">Motion</h2>
+                    <hr>
+                    <div id="canvas-wrapper3">No data available...</div>
+                </div>
+                <hr>
+            </div>
+            <div class="row margin-double">
+                <div>
+                    <h2 class="grey ">Sonar</h2>
+                    <hr>
+                    <div id="canvas-wrapper4">No data available...</div>
+                </div>
+                <hr>
+            </div>
+            <div class="row margin-double">
+                <div>
+                    <h2 class="grey ">Fan Status</h2>
+                    <hr>
+                    <div id="canvas-wrapper5">No data available...</div>
+                </div>
+                <hr>
+            </div>
+            <div class="row margin-double">
+                <div>
+                    <h2 class="grey ">Bulb Status</h2>
+                    <hr>
+                    <div id="canvas-wrapper6">No data available...</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+{{/zone}}
+{{#zone "bottomLibJs"}}
+    <script src="{{self.publicURL}}/js/moment.min.js"></script>
+    <script src="{{self.publicURL}}/js/graph_util.js"></script>
+    <script src="{{self.publicURL}}/js/jquery.daterangepicker.js"></script>
+    <script src="{{self.publicURL}}/js/bulb.js"></script>
+    <script src="{{self.publicURL}}/js/graphs/fan_graph.js"></script>
+    <script src="{{self.publicURL}}/js/graphs/bulb_graph.js"></script>
+    <script src="{{self.publicURL}}/js/graphs/temperature_graph.js"></script>
+    <script src="{{self.publicURL}}/js/graphs/light_graph.js"></script>
+    <script src="{{self.publicURL}}/js/graphs/motion_graph.js"></script>
+    <script src="{{self.publicURL}}/js/graphs/sonar_graph.js"></script>
+{{/zone}}

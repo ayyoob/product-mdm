@@ -6,7 +6,8 @@ function onRequest(context) {
         "users": [],
         "policies": [],
         "profiles": [],
-        "device-mgt": []
+        "device-mgt": [],
+        "store" : []
     };
     var dashboardLink = {
         title: "Go back to Dashboard",
@@ -17,6 +18,7 @@ function onRequest(context) {
         links.users.push(dashboardLink);
         links.policies.push(dashboardLink);
         links.profiles.push(dashboardLink);
+        links.store.push(dashboardLink);
         links['device-mgt'].push(dashboardLink);
     }
     if (permissions.ADD_USER) {

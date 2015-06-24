@@ -25,6 +25,11 @@ var log = new Log("api/device-api.jag");
 var deviceModule = require("/modules/device.js").deviceModule;
 var userModule = require("/modules/user.js").userModule;
 
+var carbon = require('carbon');
+var constants = require("/modules/constants.js");
+var carbonHttpServletTransport = carbon.server.address('http');
+var carbonHttpsServletTransport = carbon.server.address('https');
+
 var result;
 
 if (uriMatcher.match("/{context}/api/devices/")) {
@@ -45,6 +50,49 @@ if (uriMatcher.match("/{context}/api/devices/")) {
     }else {
         response.sendError(403);
     }
+} else if (uriMatcher.match("/{context}/api/device/sketch/download")) {
+    sketchType = request.getParameter("sketchType");
+    deviceType = request.getParameter("deviceType");
+
+    if (!sketchType) {
+        log.error("Sketch Type is empty");
+    }
+
+    var user = session.get(constants.USER_SESSION_KEY);
+    if (!user) {
+        response.sendRedirect(dcProps.appContext + "login?#login-required");
+        exit();
+    }
+
+    //URL: https://localhost:9443/{deviceType}/download?owner={username}
+    deviceManagerService = carbonHttpsServletTransport + "/" + deviceType + "/manager";
+    sketchDownloadEndPoint = deviceManagerService + "/device/" + sketchType + "/download";
+    response.sendRedirect(sketchDownloadEndPoint + "?owner=" + user.username);
+    exit();//stop execution
+
+} else if (uriMatcher.match("/{context}/api/devices/all")) {
+    var user = session.get(constants.USER_SESSION_KEY);
+    if (!user) {
+        response.sendRedirect(dcProps.appContext + "login?#login-required");
+        exit();//stop execution
+    }
+
+    //URL: https://localhost:9443/devicecloud/manager/devices/username/{username}
+    deviceCloudService = carbonHttpsServletTransport + "/devicecloud/manager";
+    listAllDevicesEndPoint = deviceCloudService + "/devices/username/" + user.username;
+
+    var data = {};
+    //XMLHTTPRequest's GET
+    result = get(listAllDevicesEndPoint, data, "json");
+
+} else if (uriMatcher.match("/{context}/api/devices/types")) {
+    var user = session.get(constants.USER_SESSION_KEY);
+    if (!user) {
+        response.sendRedirect(dcProps.appContext + "login?#login-required");
+        exit();//stop execution
+    }
+
+    result = deviceModule.getAllDevicesTypes();
 } else if (uriMatcher.match("{context}/api/devices/{type}/{deviceId}/{operation}")) {
     elements = uriMatcher.elements();
     deviceId = elements.deviceId;
