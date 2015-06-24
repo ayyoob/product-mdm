@@ -14,11 +14,19 @@ function onRequest(context) {
         icon: "fw-left-arrow",
         url: "/mdm"
     };
+
+    var storeLink = {
+        title: "Go back to Store",
+        icon: "fw-left-arrow",
+        url: "/mdm"
+    };
+
     if (permissions.DASHBOARD_VIEW){
         links.users.push(dashboardLink);
         links.policies.push(dashboardLink);
         links.profiles.push(dashboardLink);
         links.store.push(dashboardLink);
+        links.store.push(storeLink);
         links['device-mgt'].push(dashboardLink);
     }
     if (permissions.ADD_USER) {
