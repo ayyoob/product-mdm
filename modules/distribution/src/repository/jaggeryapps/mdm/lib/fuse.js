@@ -156,7 +156,6 @@ var getHbsFile, getFile, toRelativePath, cleanupAncestors,
         //log.info('[' + requestId + '] lookUpTable[unit]:'+unit);
         var model = definitions[lookUpTable[unit]];
         if (!model) {
-            log.warn('[' + requestId + '] unit "' + unit + '" does not exits');
             throw '[' + requestId + '] unit "' + unit + '" does not exits';
         }
         return model;

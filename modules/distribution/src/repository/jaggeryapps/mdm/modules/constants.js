@@ -21,6 +21,8 @@ var WEB_APP_CONTEXT = "/mdm";
 var USER_SESSION_KEY = "USER";
 var UNSPECIFIED = "Unspecified";
 
+var DEVICES_UNIT_PATH="/units/devices/";
+
 var DEVICE_IDENTIFIER = "deviceIdentifier";
 var DEVICE_NAME = "name";
 var DEVICE_OWNERSHIP = "ownership";

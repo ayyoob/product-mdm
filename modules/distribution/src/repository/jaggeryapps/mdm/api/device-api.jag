@@ -92,7 +92,8 @@ if (uriMatcher.match("/{context}/api/devices/")) {
         exit();//stop execution
     }
 
-    result = deviceModule.getAllDevicesTypes();
+    result = deviceModule.listDeviceTypes();
+
 } else if (uriMatcher.match("{context}/api/devices/{type}/{deviceId}/{operation}")) {
     elements = uriMatcher.elements();
     deviceId = elements.deviceId;

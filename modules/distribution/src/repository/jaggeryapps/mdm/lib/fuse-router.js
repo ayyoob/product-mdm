@@ -111,7 +111,8 @@ var route;
         }
 
         if (unitModel == null) {
-            throw '[' + requestId + '] unit "' + unit + path + '" does not exits';
+            log.error("unit `"+unit+"` not found!");
+            return false;
         }
 
         var staticFile = fuse.getFile(unitModel.name, 'public' + "/" + unitModel.path);
@@ -138,7 +139,7 @@ var route;
         if (jagFile.isExists()) {
             include(jagFile.getPath());
             return true;
-        }else{
+        } else {
             return false;
         }
     };

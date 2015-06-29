@@ -30,6 +30,7 @@ deviceModule = function () {
     var SimpleOperation = Packages.org.wso2.carbon.device.mgt.core.operation.mgt.SimpleOperation;
     var ConfigOperation = Packages.org.wso2.carbon.device.mgt.core.operation.mgt.ConfigOperation;
     var CommandOperation = Packages.org.wso2.carbon.device.mgt.core.operation.mgt.CommandOperation;
+    var deviceManagementDAOFactory = Packages.org.wso2.carbon.device.mgt.core.dao.DeviceManagementDAOFactory;
 
     var deviceManagementService = utility.getDeviceManagementService();
 
@@ -38,6 +39,18 @@ deviceModule = function () {
 
     privateMethods.validateAndReturn = function (value) {
         return (value == undefined || value == null) ? constants.UNSPECIFIED : value;
+    };
+
+    privateMethods.getStoreDefinition = function (deviceTypeStr) {
+        var storeJSON = new File(constants.DEVICES_UNIT_PATH + deviceTypeStr + "/public/store.json");
+        if (storeJSON.isExists()) {
+            storeJSON.open('r');
+            log.debug('reading file "' + storeJSON.getPath() + '"');
+            var content = storeJSON.readAll().trim();
+            storeJSON.close();
+            return parse(content);
+        }
+        return null;
     };
 
     publicMethods.listDevices = function () {
@@ -114,6 +127,34 @@ deviceModule = function () {
             deviceList.push(deviceObject);
         }
         return deviceList;
+    };
+
+    /**
+     * Return list of device types.
+     * Device types should be registered in CDMF and specific unit with name of '{devicetype}' should be presented.
+     * @returns {Array}
+     */
+    publicMethods.listDeviceTypes = function () {
+        var deviceTypes = deviceManagementDAOFactory.getDeviceTypeDAO().getDeviceTypes();
+        var deviceTypesList = [];
+        var i, deviceType, deviceTypeObject;
+        for (i = 0; i < deviceTypes.size(); i++) {
+            deviceType = deviceTypes.get(i);
+            var deviceUnit = new File(constants.DEVICES_UNIT_PATH + deviceType.getName());
+            if (deviceUnit.isExists()) {
+                deviceTypeObject = {};
+                deviceTypeObject["name"] = deviceType.getName();
+                var storeProperties = privateMethods.getStoreDefinition(deviceType.getName());
+                if (storeProperties) {
+                    deviceTypeObject["storeTitle"] = storeProperties.title;
+                    deviceTypeObject["storeDescription"] = storeProperties.description;
+                }
+                deviceTypesList.push(deviceTypeObject);
+            } else {
+                log.warn("Device type `" + deviceType.getName() + "` is missing unit implementation at: " + constants.DEVICES_UNIT_PATH);
+            }
+        }
+        return deviceTypesList;
     };
 
     /*
@@ -200,7 +241,7 @@ deviceModule = function () {
                 properties[constants.DEVICE_VENDOR] = constants.VENDOR_APPLE;
             }
             deviceObject[constants.DEVICE_PROPERTIES] = properties;
-            
+
             return deviceObject;
         }
     };
